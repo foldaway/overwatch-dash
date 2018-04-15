@@ -22,7 +22,10 @@ class CardList extends React.Component {
         ),
       ))
       .then((players) => this.setState({ players }))
-      .catch(console.error);
+      .catch(e => {
+        this.setState({ players: [] });
+        console.error(e);
+      });
   }
 
   renderCards() {
@@ -41,7 +44,7 @@ class CardList extends React.Component {
     return (
       <div className={styles.cardlist}>
         <div className={styles.cardArea}>
-          {this.renderCards()}
+          { this.state.players.length > 0 ? this.renderCards() : <span>No cards</span>}
         </div>
       </div>
     );
