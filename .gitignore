@@ -49,3 +49,5 @@ bower.json
 # End of https://www.gitignore.io/api/rails
 /public
 /node_modules
+
+.DS_Store
