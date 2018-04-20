@@ -28,9 +28,9 @@ class Card extends React.Component {
     const { playerIcon, battleTag, data } = this.props;
 
     return (
-      <div className={styles.bottomPanel}>
-        <img className={styles.playerIcon} src={playerIcon} alt="" />
-        <span className={styles.battleTag}>{battleTag}</span>
+      <div className={styles['bottom-panel']}>
+        <img className={styles['player-icon']} src={playerIcon} alt="" />
+        <span className={styles['battle-tag']}>{battleTag}</span>
         <div className={styles.tags}>
           <LevelDisplay level={data.level} />
           <RatingDisplay rating={data.sr} />
