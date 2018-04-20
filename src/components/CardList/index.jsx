@@ -44,7 +44,7 @@ class CardList extends React.Component {
   render() {
     return (
       <div className={styles.cardlist}>
-        <div className={styles.cardArea}>
+        <div className={styles['card-area']}>
           { this.state.players.length > 0 ? this.renderCards() : <span>No cards</span>}
         </div>
       </div>
