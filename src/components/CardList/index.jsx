@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { SERVER_URL } from '../../constants/constants';
 import Card from '../Card';
 import styles from './styles.scss';
 
@@ -13,10 +14,10 @@ class CardList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/v1/players')
+    axios.get(`${SERVER_URL}/api/v1/players`)
       .then((res) => res.data)
       .then((players) => Promise.all(
-        players.map((player) => axios.get(`/api/v1/players/${player.id}/data`)
+        players.map((player) => axios.get(`${SERVER_URL}/api/v1/players/${player.id}/data`)
           .then((res) => res.data)
           .then((datas) => Object.assign(player, { datas })),
         ),

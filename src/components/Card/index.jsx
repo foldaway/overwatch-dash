@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import LevelDisplay from '../LevelDisplay';
 import RatingDisplay from '../RatingDisplay';
+import { SERVER_URL } from '../../constants/constants';
 import styles from './styles.scss';
 
 class Card extends React.Component {
@@ -17,7 +18,7 @@ class Card extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/v1/heroes/${this.props.data.sr !== -1 ? this.props.data.mainComp_id : this.props.data.mainQP_id}`)
+    axios.get(`${SERVER_URL}/api/v1/heroes/${this.props.data.sr !== -1 ? this.props.data.mainComp_id : this.props.data.mainQP_id}`)
       .then((res) => res.data)
       .then((hero) => this.setState({ mainCompImg: hero.img }))
       .catch(console.error);
