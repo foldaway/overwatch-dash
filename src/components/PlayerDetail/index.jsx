@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { LineChart, XAxis, YAxis, CartesianGrid, Line, Tooltip } from 'recharts';
+
+import { SERVER_URL } from '../../constants/constants';
 import Card from '../Card';
 import styles from './styles.scss';
 
@@ -20,9 +22,9 @@ class PlayerDetail extends Component {
 
   componentDidMount() {
     const { playerId } = this.props.match.params;
-    axios.get(`/api/v1/players/${playerId}`)
+    axios.get(`${SERVER_URL}/api/v1/players/${playerId}`)
       .then((res) => res.data)
-      .then((player) => axios.get(`/api/v1/players/${player.id}/data`)
+      .then((player) => axios.get(`${SERVER_URL}/api/v1/players/${player.id}/data`)
         .then((res) => res.data)
         .then((datas) => Object.assign(player, { datas })),
       )
