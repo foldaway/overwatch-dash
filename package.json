@@ -16,7 +16,8 @@
     "postcss-modules": "^1.1.0"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "axios": "^0.18.0",
